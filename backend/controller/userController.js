@@ -17,8 +17,7 @@ exports.upload = multer({ storage: storage });
 exports.UserRegister = async (req, res) => {
     try {
         const url = path.join(
-            "F:/MERN Project/seebiz(crud)express/backend/images/" +
-                req.file.filename
+            "F:/MERN Project/UMS/backend/images/" + req.file.filename
         );
         const hashed = bcrypt.hashSync(req.body.password, 10);
         const userData = new userModel({

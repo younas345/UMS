@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Router = require("./router/routes");
 // const Router = require("express").Router();
+const cors = require("cors");
 const DB = require("./mongoose/connection");
 
 mongoose.set("strictQuery", false);
@@ -20,6 +21,7 @@ mongoose
 
 app.use(express.json());
 app.use("/", Router);
-app.listen(4001, () => {
-    console.log("server is running on this 4001");
+
+app.listen(4000, () => {
+    console.log("server is running on this 4000");
 });
