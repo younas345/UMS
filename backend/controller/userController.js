@@ -45,7 +45,7 @@ exports.UserLogin = async (req, res) => {
     if (email && password) {
         const userData = await userModel.findOne({ email: email });
         if (userData) {
-            const compass = bcrypt.compare(password, userData.password);
+            const compass = await bcrypt.compare(password, userData.password);
             if (userData.email == email && compass) {
                 jwt.sign({ name: userData.email }, "seckey", (err, token) => {
                     if (token) {
