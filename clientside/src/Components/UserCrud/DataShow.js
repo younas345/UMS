@@ -32,17 +32,15 @@ const DataShow = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {allData.map((item, key) => {
-                        return (
-                            <tr key={key}>
-                                <td key={key + 1}></td>
-                                <td>{item.name}</td>
-                                <td>{item.email}</td>
-                                <td>{item.phone}</td>
-                                <td>{item.age}</td>
-                            </tr>
-                        );
-                    })}
+                    {allData.map((item, key) => (
+                        <tr key={key}>
+                            <td>{key + 1}</td>
+                            <td>{item.name}</td>
+                            <td>{item.email}</td>
+                            <td>{item.phone}</td>
+                            <td>{item.age}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </Table>
         </div>

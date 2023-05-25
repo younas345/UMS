@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import DataShow from "./Components/UserCrud/DataShow";
 import Protected from "./Components/Protected";
 import Logout from "./Components/Logout";
+import ProductAdd from "./Components/Productlisting/ProductAdd";
 function App() {
     return (
         <div>
@@ -18,6 +19,7 @@ function App() {
                     path="/all_Data"
                     element={<Protected Component={DataShow} />}
                 />
+                <Route path="/products" element={<ProductAdd />} />
             </Routes>
             <Logout />
         </div>
