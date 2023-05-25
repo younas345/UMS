@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+// import axios from "../../axios";
+import axios from "axios";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    });
+    const handleChange = (e) => {
+        setLoginData({ ...loginData, [e.target.name]: e.target.value });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:4000/login", loginData).then((res) => {
+            console.log(res.data);
+            const token = res.data.token;
+
+            localStorage.setItem("token", token);
+            navigate("/all_data");
+        });
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
+    };
+
     return (
         <div>
             <div className="main_page">
@@ -11,62 +37,33 @@ const Login = () => {
                     <div className="form-outline mb-4">
                         <input
                             type="email"
-                            id="form2Example1"
                             className="form-control"
                             name="email"
+                            onChange={handleChange}
                         />
-                        <label className="form-label" for="form2Example1">
-                            Email address
-                        </label>
+                        <label className="form-label">Email address</label>
                     </div>
 
                     <div className="form-outline mb-4">
                         <input
                             type="password"
-                            id="form2Example2"
                             className="form-control"
                             name="password"
+                            onChange={handleChange}
                         />
-                        <label className="form-label" for="form2Example2">
-                            Password
-                        </label>
+                        <label className="form-label">Password</label>
                     </div>
-
-                    <div className="row mb-4">
-                        <div className="col d-flex justify-content-center">
-                            <div className="form-check">
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="form2Example31"
-                                    checked
-                                />
-                                <label
-                                    className="form-check-label"
-                                    for="form2Example31"
-                                >
-                                    {" "}
-                                    Remember me{" "}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div className="col">
-                            <a href="#!">Forgot password?</a>
-                        </div>
-                    </div>
-
                     <button
                         type="button"
                         className="btn btn-primary btn-block mb-4"
+                        onClick={handleSubmit}
                     >
                         Sign in
                     </button>
 
                     <div className="text-center">
                         <p>
-                            Not a register? <Link href="#!">Register</Link>
+                            Not a register? <Link to="/register">Register</Link>
                         </p>
                     </div>
                 </form>

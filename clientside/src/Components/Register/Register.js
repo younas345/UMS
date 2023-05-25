@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../Register/Register.css";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const Register = () => {
+    const navigate = useNavigate();
     const [registerData, setRegisterData] = useState({
         name: "",
         email: "",
@@ -16,8 +17,8 @@ const Register = () => {
             ...registerData,
             [e.target.name]: e.target.value
         });
-        const save = registerData;
-        console.log(save);
+        // const save = registerData;
+        // console.log(save);
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +32,7 @@ const Register = () => {
             .post("http://localhost:4000/register", formData)
             .then((res) => {
                 console.log("user register", res);
+                navigate("/login");
             })
             .catch((err) => {
                 console.log(err.message);
@@ -103,7 +105,7 @@ const Register = () => {
                 </div>
                 <div className="text-center">
                     <p>
-                        Already Register? <Link>Login</Link>
+                        Already Register? <Link to="/login">Login</Link>
                     </p>
                 </div>
             </Form>

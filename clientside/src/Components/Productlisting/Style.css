@@ -1,0 +1,30 @@
+.form {
+    background-color: rgb(116, 106, 147);
+    border: 1px solid black;
+    width: 50%;
+    margin: 20px 20%;
+    text-align: center;
+}
+
+.getData {
+    width: 60%;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.getData:hover {
+    background-color: rgb(150, 146, 146);
+    color: rgb(255, 255, 255);
+}
+
+.btnn {
+    background-color: white;
+    width: 50%;
+    color: black;
+    margin: 5px auto;
+}
+
+.btnn:hover {
+    background-color: rgb(61, 59, 59);
+    color: white;
+}
