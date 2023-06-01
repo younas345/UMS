@@ -31,7 +31,7 @@ exports.updateUser = async (req, res) => {
     try {
         const { name, email, phone, age } = req.body;
         const updatingData = await crudModel.findOne({
-            email: req.params.email
+            _id: req.params.id
         });
         if (name) {
             updatingData.name = name;
@@ -60,8 +60,8 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
     try {
-        const deleteData = await crudModel.deleteOne({
-            email: req.params.email
+        const deleteData = await crudModel.findByIdAndDelete({
+            _id: req.params.id
         });
         // await deleteData.delete();
         res.json({

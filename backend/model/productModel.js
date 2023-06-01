@@ -7,8 +7,8 @@ const product = new mongoose.Schema(
         },
         type: {
             type: String,
-            enum: ["inventory", "no inventory"],
-            default: "inventory"
+            enum: ["Inventory", "NoInventory"],
+            default: "Inventory"
         },
         productName: {
             type: String,

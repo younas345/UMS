@@ -7,6 +7,7 @@ import DataShow from "./Components/UserCrud/DataShow";
 import Protected from "./Components/Protected";
 import Logout from "./Components/Logout";
 import ProductAdd from "./Components/Productlisting/ProductAdd";
+import ProductShow from "./Components/Productlisting/ProductShow";
 function App() {
     return (
         <div>
@@ -19,9 +20,10 @@ function App() {
                     path="/all_Data"
                     element={<Protected Component={DataShow} />}
                 />
-                <Route path="/products" element={<ProductAdd />} />
+                <Route path="/AddProducts" element={<ProductAdd />} />
+                <Route path="/productShow" element={<ProductShow />} />
+                <Route path="/" element={<Logout />} />
             </Routes>
-            <Logout />
         </div>
     );
 }

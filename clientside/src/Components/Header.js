@@ -24,6 +24,15 @@ const Header = () => {
                     {" "}
                     <li style={li}> Home </li>
                 </Link>
+                <Link to="/AddProducts">
+                    <li style={li}> AddProducts </li>
+                </Link>
+                <Link to="/productShow">
+                    <li style={li}> ShowData </li>
+                </Link>
+                <Link to="/all_data">
+                    <li style={li}> All_Data </li>
+                </Link>
                 <Link to="/login">
                     {" "}
                     <li style={li}> Login </li>
@@ -31,11 +40,8 @@ const Header = () => {
                 <Link to="/register">
                     <li style={li}> Register </li>
                 </Link>
-                <Link to="/all_data">
-                    <li style={li}> All_Data </li>
-                </Link>
-                <Link to="/products">
-                    <li style={li}> Products </li>
+                <Link to="/logout">
+                    <li style={li}> Logout </li>
                 </Link>
             </ul>
         </div>

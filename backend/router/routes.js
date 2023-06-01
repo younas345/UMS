@@ -6,13 +6,9 @@ const Route = express.Router();
 Route.use(express.json());
 Route.get("/", tokenVerify.jwtVerifyToken, crudController.UserGet);
 Route.post("/post", tokenVerify.jwtVerifyToken, crudController.postUser);
-Route.put(
-    "/update/:email",
-    tokenVerify.jwtVerifyToken,
-    crudController.updateUser
-);
+Route.put("/update/:id", tokenVerify.jwtVerifyToken, crudController.updateUser);
 Route.delete(
-    "/delete/:email",
+    "/delete/:id",
     tokenVerify.jwtVerifyToken,
     crudController.deleteUser
 );

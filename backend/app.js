@@ -22,6 +22,8 @@ mongoose
     });
 
 app.use(express.json());
+app.use("/productsImage", express.static("productsImage"));
+app.use("/images", express.static("images"));
 const corsOptions = {
     origin: "*",
     credentials: true,
