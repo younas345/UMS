@@ -8,4 +8,6 @@ Route.post(
     product.upload.single("productsImage"),
     product.postProducts
 );
+Route.put("/update/:id", product.updateData);
+Route.delete("/delete/:id", product.deleteProduct);
 module.exports = Route;
